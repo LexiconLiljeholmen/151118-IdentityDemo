@@ -5,17 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace IdentityDemo.Controllers {
-    [Authorize(Roles = "KeeperOfSecrets")]
+    [Authorize]
     public class AuthtestController : Controller {
 
-       
+        [Authorize(Roles = "KeeperOfSecrets")]
         public ContentResult Secret() {
             return Content("Detta är supersuperhemligt");
         }
 
-        //public ContentResult Hidden() {
-        //    return Content("Detta är lite småhemligt");
-        //}
+        public ContentResult Hidden() {
+            return Content("Detta är lite småhemligt");
+        }
 
         [AllowAnonymous]
         public ContentResult Open() {
